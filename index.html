@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content=" This Is Description For Task Project" />
+    <title>Task</title>
+    <!--Main Css File-->
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="screen">
+      <div class="modal title">
+        <p>match the pictures to their silhouettes</p>
+        <button class="continue">
+          <span class="material-symbols-outlined"> east </span>
+        </button>
+      </div>
+      <div class="modal success">
+        <p></p>
+        <button class="close">
+          <span class="material-symbols-outlined"> close </span>
+        </button>
+      </div>
+      <div class="game">
+        <div class="board">
+          <div id="pictures-container">
+            <img
+              src="./media/images/ball.png"
+              class="picture"
+              draggable="true"
+              data-id="1"
+            />
+            <img
+              src="./media/images/apple.png"
+              class="picture"
+              draggable="true"
+              data-id="2"
+            />
+            <img
+              src="./media/images/book.png"
+              class="picture"
+              draggable="true"
+              data-id="3"
+            />
+            <img
+              src="./media/images/cat.png"
+              class="picture"
+              draggable="true"
+              data-id="4"
+            />
+            <img
+              src="./media/images/desk.png"
+              class="picture"
+              draggable="true"
+              data-id="5"
+            />
+            <img
+              src="./media/images/backpack.png"
+              class="picture"
+              draggable="true"
+              data-id="6"
+            />
+          </div>
+          <div id="silhouettes-container">
+            <img
+              src="./media/images/ball.png"
+              class="silhouette"
+              droppable="true"
+              draggable="false"
+              data-id="1"
+            />
+            <img
+              src="./media/images/apple.png"
+              class="silhouette"
+              droppable="true"
+              draggable="false"
+              data-id="2"
+            />
+            <img
+              src="./media/images/book.png"
+              class="silhouette"
+              droppable="true"
+              draggable="false"
+              data-id="3"
+            />
+            <img
+              src="./media/images/cat.png"
+              class="silhouette"
+              droppable="true"
+              draggable="false"
+              data-id="4"
+            />
+            <img
+              src="./media/images/desk.png"
+              class="silhouette"
+              droppable="true"
+              draggable="false"
+              data-id="5"
+            />
+            <img
+              src="./media/images/backpack.png"
+              class="silhouette"
+              droppable="true"
+              draggable="false"
+              data-id="6"
+            />
+          </div>
+        </div>
+      </div>
+      <audio id="audio" src="./media/audio/audio.mp3"></audio>
+      <audio id="1" src="./media/audio/football.mp3"></audio>
+      <audio id="2" src="./media/audio/apple.mp3"></audio>
+      <audio id="3" src="./media/audio/book.mp3"></audio>
+      <audio id="4" src="./media/audio/cat.mp3"></audio>
+      <audio id="5" src="./media/audio/desk.mp3"></audio>
+      <audio id="6" src="./media/audio/backpack.mp3"></audio>
+      <audio id="7" src="./media/audio/fantastic.mp3"></audio>
+    </div>
+    <script src="./script.js" async></script>
+  </body>
+</html>

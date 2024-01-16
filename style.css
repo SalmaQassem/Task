@@ -1,0 +1,252 @@
+:root {
+  --purpleColor: #652269;
+  --yellowColor: #fed65d;
+  --font: cursive;
+  --width: 0%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.show {
+  display: block !important;
+}
+.screen {
+  width: 100vw;
+  height: 100vh;
+  padding: 50px 100px;
+  background-image: url("./media/images/background.png");
+  background-size: cover;
+  background-position: 100% 17%;
+}
+@media screen and (max-width: 992px) {
+  .screen {
+    padding: 30px;
+  }
+}
+.modal {
+  width: 600px;
+  padding: 60px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 4px 1px #ddd;
+}
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+@media screen and (max-width: 768px) {
+  .modal {
+    width: auto;
+  }
+}
+.modal.success {
+  display: none;
+}
+.modal.show {
+  animation-name: modalOpen;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+}
+.screen .modal.hide {
+  animation-name: close;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+}
+.screen .modal.remove {
+  display: none;
+}
+.screen .modal > p {
+  color: var(--purpleColor);
+  font-size: 22px;
+  font-family: var(--font);
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.screen .modal > button {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  color: #fff;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  cursor: pointer;
+  box-shadow: 0 0 4px 1px #ddd;
+}
+.screen .modal .continue {
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  background-color: var(--purpleColor);
+}
+.screen .modal .close {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background-color: var(--yellowColor);
+}
+.game {
+  width: 100%;
+  height: calc(100% - 50px);
+  display: none;
+}
+.score {
+  width: 125px;
+  height: 50px;
+  padding: 10px 20px;
+  margin: 0 25px 0 auto;
+  position: relative;
+  background-color: #652269ba;
+  color: #fff;
+  font-size: 18px;
+  font-family: var(--font);
+  text-align: center;
+  border: 3px solid #fff;
+  border-radius: 25px;
+  box-shadow: 0 0 4px 1px #f1dfdf;
+  overflow: hidden;
+}
+.score > span {
+  position: relative;
+  z-index: 10;
+}
+.score::before {
+  content: "";
+  position: absolute;
+  width: var(--width);
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  background-color: var(--yellowColor);
+  border-radius: inherit;
+}
+.board {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  gap: 50px;
+}
+@media screen and (min-width: 992px) {
+  .board {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+#pictures-container,
+#silhouettes-container {
+  height: 100%;
+  flex: 1;
+  position: relative;
+}
+.silhouette,
+.picture {
+  width: auto;
+  height: 100px;
+  position: absolute;
+  object-fit: cover;
+  visibility: hidden;
+}
+.silhouette.open,
+.picture.open {
+  animation-name: open;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+}
+.picture {
+  cursor: move;
+}
+.picture:first-of-type {
+  top: 62%;
+  left: 44%;
+}
+.picture:nth-of-type(2) {
+  top: 12%;
+  left: 50%;
+  transform: rotate(-20deg);
+}
+.picture:nth-of-type(3) {
+  top: 51%;
+  left: 40px;
+  transform: rotate(-20deg);
+}
+.picture:nth-of-type(4) {
+  top: 45%;
+  right: 14%;
+  transform: rotate(10deg);
+}
+.picture:nth-of-type(5) {
+  top: 38%;
+  right: 37%;
+}
+.picture:nth-of-type(6) {
+  top: 27%;
+  right: 68%;
+  transform: rotate(11deg);
+}
+.silhouette {
+  opacity: 0.6;
+}
+.silhouette:first-of-type {
+  top: 40%;
+  left: 40px;
+}
+.silhouette:nth-of-type(2) {
+  top: 45%;
+  right: 23%;
+}
+.silhouette:nth-of-type(3) {
+  top: 12%;
+  left: 50%;
+}
+.silhouette:nth-of-type(4) {
+  top: 32%;
+  left: 44%;
+}
+.silhouette:nth-of-type(5) {
+  top: 18%;
+  left: 19%;
+}
+.silhouette:nth-of-type(6) {
+  top: 56%;
+  left: 30%;
+}
+/*animations*/
+@keyframes close {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 0;
+    left: 0;
+    top: 0;
+  }
+}
+@keyframes open {
+  0% {
+    scale: 0;
+  }
+  50% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}
